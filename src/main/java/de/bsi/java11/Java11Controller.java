@@ -24,24 +24,11 @@ public class Java11Controller {
 				"<h1>%s</h1>" + 
 				"</body></html>";
 		
-		List<Java11Item> itemsToShow = getItemList(); 
+		var itemsToShow = getItemList(); 
 		
 		return String.format(html, itemsToShow.size(), itemsToShow);
 	}
 	
-	// TODO Use Pattern matching instanceof
-	private List<Java11Item> getItemList() {
-		List<Java11Item> items = new ArrayList<>();
-		for (Object object : objects) {
-			if (object instanceof Java11Item) {
-				Java11Item castedItem = (Java11Item) object;
-				if (!castedItem.getName().isBlank())
-					items.add(castedItem);
-			}
-		}
-		return items;
-	}
-
 	// TODO Use new switch
 	@PostMapping
 	public void addItem(@RequestParam int format, @RequestBody Java11Item item) {
@@ -65,5 +52,17 @@ public class Java11Controller {
 		}
 		objects.add(toBeAdded);
 	}
-
+	
+	// TODO Use Pattern matching instanceof
+	private List<Java11Item> getItemList() {
+		var items = new ArrayList<Java11Item>();
+		for (Object object : objects) {
+			if (object instanceof Java11Item) {
+				Java11Item castedItem = (Java11Item) object;
+				if (!castedItem.getName().isBlank())
+					items.add(castedItem);
+			}
+		}
+		return items;
+	}
 }

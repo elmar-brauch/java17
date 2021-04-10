@@ -28,23 +28,11 @@ public class Java16Controller {
 				</html>
 				""";
 		
-		List<Java16Item> itemsToShow = getItemList(); 
+		var itemsToShow = getItemList(); 
 		
 		return String.format(html, itemsToShow.size(), itemsToShow);
 	}
 	
-	// Pattern matching instanceof
-	private List<Java16Item> getItemList() {
-		List<Java16Item> items = new ArrayList<>();
-		for (Object object : objects) {
-			if (object instanceof Java16Item item) {
-				if (!item.name().isBlank())
-					items.add(item);
-			}
-		}
-		return items;
-	}
-
 	// New switch
 	@PostMapping
 	public void addItem(@RequestParam int format, @RequestBody Java16Item item) {
@@ -59,4 +47,15 @@ public class Java16Controller {
 		objects.add(toBeAdded);
 	}
 
+	// Pattern matching instanceof
+	private List<Java16Item> getItemList() {
+		var items = new ArrayList<Java16Item>();
+		for (Object object : objects) {
+			if (object instanceof Java16Item item) {
+				if (!item.name().isBlank())
+					items.add(item);
+			}
+		}
+		return items;
+	}
 }
