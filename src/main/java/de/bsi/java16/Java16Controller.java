@@ -50,12 +50,9 @@ public class Java16Controller {
 	// Pattern matching instanceof
 	private List<Java16Item> getItemList() {
 		var items = new ArrayList<Java16Item>();
-		for (Object object : objects) {
-			if (object instanceof Java16Item item) {
-				if (!item.name().isBlank())
-					items.add(item);
-			}
-		}
+		for (Object object : objects)
+			if (object instanceof Java16Item item && !item.name().isBlank())
+				items.add(item);
 		return items;
 	}
 }
