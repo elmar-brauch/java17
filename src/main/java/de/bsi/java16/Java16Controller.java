@@ -30,7 +30,7 @@ public class Java16Controller {
 		
 		var itemsToShow = getItemList(); 
 		
-		return String.format(html, itemsToShow.size(), itemsToShow);
+		return html.formatted(itemsToShow.size(), itemsToShow);
 	}
 	
 	// New switch
