@@ -1,14 +1,10 @@
 package de.bsi.java11;
 
+import org.springframework.web.bind.annotation.*;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import java.util.Random;
 
 @RestController
 @RequestMapping("/old")
@@ -64,5 +60,15 @@ public class Java11Controller {
 			}
 		}
 		return items;
+	}
+
+	// TODO Use new Enhanced Pseudo-Random Number Generators
+	// TODO Use Pattern Matching for switch
+	private void generateRandomNumbers() {
+		var random = new Random();
+		random.ints(5, 1, 100)
+				.forEach(i -> System.out.println("Random Int: " + i));
+		random.doubles(5)
+				.forEach(d -> System.out.println("Random Double: " + d));
 	}
 }
