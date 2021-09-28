@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>de.bsi</groupId>
-	<artifactId>java16</artifactId>
+	<artifactId>java17</artifactId>
 	<version>0.1</version>
-	<name>java16</name>
-	<description>Java 16 demo</description>
+	<name>java17</name>
+	<description>Demo of new Java features since version 11</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
