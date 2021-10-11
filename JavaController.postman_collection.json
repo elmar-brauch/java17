@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "0d98d630-b681-407d-9a2c-306bdc3d6faf",
-		"name": "Java16Controller",
+		"_postman_id": "ac74c3a3-233e-4a34-9723-b83c285a9f66",
+		"name": "Java17Controller",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -11,14 +11,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/old",
+					"raw": "http://localhost:8080/jdk17",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"old"
+						"jdk17"
 					]
 				}
 			},
@@ -31,7 +31,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Java\",\r\n    \"id\": 16\r\n}",
+					"raw": "{\r\n    \"name\": \"Java\",\r\n    \"id\": 17\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -39,14 +39,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/old?format=1",
+					"raw": "http://localhost:8080/jdk17?format=1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"old"
+						"jdk17"
 					],
 					"query": [
 						{

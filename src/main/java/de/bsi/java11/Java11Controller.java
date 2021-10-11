@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Random;
 
 @RestController
-@RequestMapping("/old")
+@RequestMapping("/jdk11")
 public class Java11Controller {
 	
 	protected static List<Object> objects = new ArrayList<>();
@@ -64,11 +64,12 @@ public class Java11Controller {
 
 	// TODO Use new Enhanced Pseudo-Random Number Generators
 	// TODO Use Pattern Matching for switch
-	private void generateRandomNumbers() {
+	private int generateRandomNumbers() {
 		var random = new Random();
 		random.ints(5, 1, 100)
 				.forEach(i -> System.out.println("Random Int: " + i));
 		random.doubles(5)
 				.forEach(d -> System.out.println("Random Double: " + d));
+		return random.nextInt();
 	}
 }
