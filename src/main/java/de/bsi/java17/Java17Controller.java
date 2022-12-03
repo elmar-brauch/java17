@@ -1,11 +1,13 @@
 package de.bsi.java17;
 
+import org.springframework.web.bind.annotation.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.random.RandomGenerator;
-import java.util.stream.*;
-
-import org.springframework.web.bind.annotation.*;
+import java.util.stream.BaseStream;
+import java.util.stream.DoubleStream;
+import java.util.stream.IntStream;
 
 @RestController
 @RequestMapping("/new")
@@ -56,18 +58,22 @@ public class Java17Controller {
 	// JEP 356: Enhanced Pseudo-Random Number Generators
 	private int generateRandomNumber() {
 		var random = RandomGenerator.JumpableGenerator.of("Xoroshiro128PlusPlus");
-		printStream(random.ints(5,1,100));
+		printStream(
+				random.ints(5,1,100)
+		);
 		random.jump();
-		printStream(random.doubles(5));
+		printStream(
+				random.doubles(5)
+		);
 		return random.nextInt();
 	}
 
 	@SuppressWarnings("preview")
-	// Java 19 - JEP 427: Pattern Matching for switch (Third Preview)
+	// JEP 406: Pattern Matching for switch (Preview)
 	private void printStream(BaseStream stream) {
 		switch (stream) {
 			case null -> System.out.println("null is now a possible case.");
-			case IntStream is when is.isParallel() -> System.out.println("Expression in case.");
+			case IntStream is && is.isParallel() -> System.out.println("Expression in case.");
 			case IntStream is -> is.forEach(i -> System.out.println("Random Int: " + i));
 			case DoubleStream ds -> ds.forEach(d -> System.out.println("Random Double: " + d));
 			default -> throw new IllegalStateException("Unexpected value: " + stream);
